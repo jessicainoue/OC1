@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------+
-| Programa: rel_carros.sas                                   |
+| Programa: rel_carros.sas                                       |
 +----------------------------------------------------------------+
 | Módulo: Relatórios                                             |
 +----------------------------------------------------------------+
@@ -12,7 +12,7 @@
 | 24/06/2025 | Jessica M. Inoue | Criação do relatório.          |
 +---------------------------------------------------------------*/
 
-/*Chamada para iniciar o progrma macrovar.sas*/
+/*Chamada para iniciar o programa macrovar.sas*/
 %include "/opt/sas/Workshop/Git/OC1/macro/macrovars.sas";
 /*Chamada da macro '&caminho'*/
 %include "&caminho/src/libraries.sas";
