@@ -14,5 +14,6 @@
 
 /*Caminho das fontes dos programas*/
 %let caminho=/opt/sas/Workshop/Git/OC1;
+
 /*Caminho para as libraries*/
 %let caminho_libs=/opt/sas/Workshop/libraries;

@@ -14,7 +14,7 @@
 |                               |  a Quantidade Vendida.         |
 +---------------------------------------------------------------*/
 
-/*Chamada para iniciar o programa macrovar.sas*/
+/*Chamada para iniciar o programa macrovars.sas*/
 %include "/opt/sas/Workshop/Git/OC1/macro/macrovars.sas";
 %include "&caminho/src/libraries.sas";
 
