@@ -12,50 +12,18 @@
 | 25/06/2025 | Jessica M. Inoue | Carga da tabela DM.            |
 +---------------------------------------------------------------*/
 
-/*Chamada para iniciar o programa macrovar.sas*/
+/*Chamada para iniciar o programa macrovars.sas*/
 %include "/opt/sas/Workshop/Git/OC1/macro/macrovars.sas";
 %include "&caminho/src/libraries.sas";
 
-proc import datafile="&caminho/output/DM.xlsx" dbms=xlsx
-	out=sicoob.vendas replace;
-	sheet=vendas;
-run;
-
-/* A tabela estava carregando linhas vazias (missing). Utilizado where para carregar apenas os dados com registro */
-proc import datafile="&caminho/output/DM.xlsx" dbms=xlsx
-	out=sicoob.produtos(where=(CodProduto <> .)) replace;
-	sheet=produtos;
-run;
-
-proc import datafile="&caminho/output/DM.xlsx" dbms=xlsx
-	out=sicoob.deptos replace;
-	sheet=deptos;
-run;
-
-proc import datafile="&caminho/output/DM.xlsx" dbms=xlsx
-	out=sicoob.grupos replace;
-	sheet=grupos;
-run;
-
-proc import datafile="&caminho/output/DM.xlsx" dbms=xlsx
-	out=sicoob.cores replace;
-	sheet=cores;
-run;
-
-proc import datafile="&caminho/output/DM.xlsx" dbms=xlsx
-	out=sicoob.tamanhos replace;
-	sheet=tamanhos;
-run;
-
-proc import datafile="&caminho/output/DM.xlsx" dbms=xlsx
-	out=sicoob.estados replace;
-	sheet=estados;
-run;
-
-proc import datafile="&caminho/output/DM.xlsx" dbms=xlsx
-	out=sicoob.regioes replace;
-	sheet="Regiões";
-run;
+%import_data(vendas, vendas)
+%import_data(produtos, produtos)
+%import_data(deptos, deptos)
+%import_data(grupos, grupos)
+%import_data(cores, cores)
+%import_data(tamanhos, tamanhos)
+%import_data(estados, estados)
+%import_data(regioes, Regiões)
 
 /*Chamada para liberar as libs*/
 %include "&caminho/src/clear_libs.sas"
