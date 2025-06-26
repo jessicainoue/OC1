@@ -11,6 +11,8 @@
 +----------------------------------------------------------------+
 | 25/06/2025 | Jessica M. Inoue | Cruza a qtde de vendas com o   |
 |                               |  valor do produto.             |
+| 26/06/2025 | Jessica M. Inoue | Altera o Merge DataStep por um |
+|                               |  Join ProcSql.                 |
 +---------------------------------------------------------------*/
 
 /*Chamada para iniciar o programa macrovars.sas e libraries.sas*/
