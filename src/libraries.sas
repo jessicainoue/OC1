@@ -14,7 +14,7 @@
 +---------------------------------------------------------------*/
 
 /*Cria uma libname 'sicoob', que aponta para a pasta /opt/sas/Workshop/libraries/Sicoob*/
-libname sicoob base "&caminho_libs/Sicoob";
+libname sicoob base "&caminho_libs/sicoob";
 
 /*Cria uma libname 'sicoobsp', que aponta para a pasta /opt/sas/Workshop/libraries/SicoobSP*/
-libname sicoobsp base "&caminho_libs/SicoobSP";
+libname sicoobsp base "&caminho_libs/sicoobSP";
