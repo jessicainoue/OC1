@@ -3,7 +3,7 @@
 +----------------------------------------------------------------+
 | Módulo: Preparação de Dados                                    |
 +----------------------------------------------------------------+
-| Versão: 1.00                                                   |
+| Versão: 4.00                                                   |
 +----------------------------------------------------------------+
 | Histórico de Alterações:                                       |
 +----------------------------------------------------------------+
@@ -15,6 +15,8 @@
 |                               |  Join ProcSql.                 |
 | 27/06/2025 | Jessica M. Inoue | Utiliza o format para adicionar|
 |                               |  a descrição do tamanho.       |
+| 27/06/2025 | Jessica M. Inoue | Altera a librarie para utilizar|
+|                               |  as tabelas do Oracle (OC1).   |
 +---------------------------------------------------------------*/
 
 /*Chamada para iniciar o programa macrovars.sas e libraries.sas*/
@@ -24,7 +26,7 @@
 %include "&caminho/src/formatos_corp.sas";
 
 proc sql;
-create table sicoobSP.VendasPeriodo as
+create table sicoobsp.VendasPeriodo as
 select a.CodProduto,
 	b.Descricao,
 	b.CodGrupo,
@@ -33,8 +35,9 @@ select a.CodProduto,
 	d.Descricao as Depto,
 	a.CodCor,
 	e.Descricao as Cor,
-	a.CodTamanho format=tamanho., /*Utiliza o formato 'tamanho' par substituir o código pela descrição*/
-/*	f.Descricao as Tamanho,*/
+	a.CodTamanho,
+	/*a.CodTamanho format=tamanho., /*Utiliza o formato 'tamanho' par substituir o código pela descrição*/
+	f.Descricao as Tamanho,
 	a.CodEstado,
 	g.Sigla,
 	g.Nome as Estado,
@@ -45,14 +48,14 @@ select a.CodProduto,
 	(a.QtdeVendida*b.PrecoUnitario) as TotalVenda,
 	g.PercImposto,
 	(a.QtdeVendida*b.PrecoUnitario*g.PercImposto) as TotalImposto
-from sicoob.vendas as a
-	inner join sicoob.produtos as b on (a.CodProduto = b.CodProduto)
-	inner join sicoob.grupos as c on (b.CodGrupo = c.CodGrupo)
-	inner join sicoob.deptos as d on (b.CodDepto = d.CodDepto)
-	inner join sicoob.cores as e on (a.CodCor = e.CodCor)
-/*	inner join sicoob.tamanhos as f on (a.CodTamanho = f.CodTamanho)*/
-	inner join sicoob.estados as g on (a.CodEstado = g.CodEstado)
-	inner join sicoob.regioes as h on (g.CodRegiao = h.CodRegiao);
+from OC1.vendas as a
+	inner join OC1.produtos as b on (a.CodProduto = b.CodProduto)
+	inner join OC1.grupos as c on (b.CodGrupo = c.CodGrupo)
+	inner join OC1.deptos as d on (b.CodDepto = d.CodDepto)
+	inner join OC1.cores as e on (a.CodCor = e.CodCor)
+	inner join OC1.tamanhos as f on (a.CodTamanho = f.CodTamanho)
+	inner join OC1.estados as g on (a.CodEstado = g.CodEstado)
+	inner join OC1.regioes as h on (g.CodRegiao = h.CodRegiao);
 quit;
 
 /*Chamada para liberar as libs*/
